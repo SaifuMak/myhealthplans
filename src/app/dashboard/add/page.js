@@ -80,7 +80,7 @@ export default function AddPolicyPage() {
         if (file) formData.append(key, file);
       });
 
-      const res = await AXIOS_INSTANCE.post("api/policies/add/", formData, {
+      const res = await AXIOS_INSTANCE.post("api/policies/actions/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
