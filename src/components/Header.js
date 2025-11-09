@@ -58,7 +58,7 @@ export default function Header() {
           >
             + Add Policy
           </Link>
-          <p onClick={handleLogout} className="hover:underline">Logout</p>
+          <p onClick={handleLogout} className="hover:bg-slate-100 px-3 py-1.5 rounded-lg cursor-pointer">Logout</p>
         </nav>
 
         <button
