@@ -5,6 +5,8 @@ import AXIOS_INSTANCE from "@/app/lib/axios";
 import { toast } from "sonner";
 import Pagination from "@/components/general-components/Pagination";
 import { getPageNumber, getTotalPagesCount } from "../utils/PaginatonHelpers";
+import { useRouter } from "next/navigation";
+
 
 const formatDate = (dateString) => {
   if (!dateString) return "";
@@ -45,6 +47,9 @@ export default function DashboardPage() {
   const [totalPages, setTotalPages] = useState(null)
 
   const [query, setQuery] = useState("");
+
+  const router = useRouter();
+
 
   const fetchPolicies = async (page = 1, query = '') => {
 
@@ -200,7 +205,9 @@ export default function DashboardPage() {
                       {/* Actions */}
                       <td className="px-4 py-4 align-top">
                         <div className="flex gap-2 flex-wrap">
-                          <button className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded hover:underline cursor-pointer">
+                          <button 
+                          onClick={() => router.push(`dashboard/edit/${policy.id}`)}
+                          className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded hover:underline cursor-pointer">
                             Edit
                           </button>
                           <button className="text-xs bg-red-100 text-red-800 px-2 py-0.5 rounded hover:underline cursor-pointer">
