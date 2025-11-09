@@ -17,7 +17,7 @@ const formatDate = (dateString) => {
   return `${day}-${month}-${year}`;
 };
 
-// 🧠 Helper: Renewal logic with Expired handling
+//  Helper: Renewal logic with Expired handling
 const getRenewalStatus = (endDate) => {
   if (!endDate) return { color: "", text: "" };
 
@@ -121,7 +121,7 @@ export default function DashboardPage() {
           <table className="min-w-full text-sm">
             <thead className="bg-sky-100 text-left">
               <tr>
-                <th className="px-4 py-3 font-semibold text-sky-900">Name</th>
+                <th className="px-4 py-3 font-semibold  text-sky-900">Name</th>
                 <th className="px-4 py-3 font-semibold text-sky-900">Policy</th>
                 <th className="px-4 py-3 font-semibold text-sky-900">Date of Birth</th>
                 <th className="px-4 py-3 font-semibold text-sky-900">Start Date</th>
@@ -150,7 +150,7 @@ export default function DashboardPage() {
                   return (
                     <tr key={policy.id} className="align-top">
                       {/* Name + Files */}
-                      <td className="px-4 py-4 align-top font-medium">
+                      <td className="px-4 capitalize py-4 align-top font-medium">
                         {policy.name}
                         <div className="mt-2 flex gap-2 flex-wrap">
                           {policy.pan_public_url && (
@@ -187,7 +187,7 @@ export default function DashboardPage() {
                       </td>
 
                       {/* Policy Name & Type */}
-                      <td className="px-4 py-4 align-top flex flex-col">
+                      <td className="px-4 py-4  align-top flex flex-col">
                         {policy.policy_name}
                         {policy.policy_type && (
                           <div className="inline-block mt-2 w-fit bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">

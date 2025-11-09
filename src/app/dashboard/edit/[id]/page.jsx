@@ -20,6 +20,7 @@ export default function EditPolicyPage() {
         startDate: "",
         endDate: "",
         sumAssured: "",
+        details:""
     });
 
     const [files, setFiles] = useState({
@@ -62,6 +63,7 @@ export default function EditPolicyPage() {
                     startDate: data.start_date || "",
                     endDate: data.end_date || "",
                     sumAssured: data.sum_assured || "",
+                    details: data.details || ""
                 });
                 setExistingfileUrl({
                     aadhar: data?.aadhar_public_url || "No file chosen",
@@ -115,6 +117,7 @@ export default function EditPolicyPage() {
                 sumAssured: "sum_assured",
                 dob: "dob",
                 name: "name",
+                details : "details"
             };
 
             Object.entries(form).forEach(([key, value]) => {
@@ -177,6 +180,20 @@ export default function EditPolicyPage() {
                             />
                         </div>
                     ))}
+
+                    <div>
+                        <label className="block mb-1 text-sm font-medium text-gray-700">
+                            Additional Details
+                        </label>
+                        <textarea
+                            name="details"
+                            value={form.details || ""}
+                            onChange={handleChange}
+                            placeholder="Enter additional policy details..."
+                            rows={4}
+                            className="w-full border border-gray-300 px-4 py-2 rounded   "
+                        ></textarea>
+                    </div>
 
                     {/* File inputs */}
                     {[
