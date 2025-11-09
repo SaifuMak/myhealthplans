@@ -2,11 +2,34 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { toast } from 'sonner';
+import AXIOS_INSTANCE from "@/app/lib/axios";
+import { useRouter } from 'next/navigation';
+
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-  // Optional: Lock body scroll when menu is open
+  const router = useRouter()
+
+  const [loading, setloading] = useState(false)
+
+  const handleLogout = async () => {
+    setloading(true)
+    try {
+      const response = await AXIOS_INSTANCE.post(`logout/`, {});
+      toast.success('Logged out successfully')
+      router.replace("/login");
+
+    } catch (error) {
+      toast.error(error?.response?.data?.error)
+
+    } finally {
+      setloading(false)
+    }
+
+  }
+   // Optional: Lock body scroll when menu is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -35,7 +58,7 @@ export default function Header() {
           >
             + Add Policy
           </Link>
-          <Link href="/logout" className="hover:underline">Logout</Link>
+          <p onClick={handleLogout} className="hover:underline">Logout</p>
         </nav>
 
         <button
