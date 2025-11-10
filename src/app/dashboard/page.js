@@ -209,7 +209,7 @@ export default function DashboardPage() {
                           <div
                             className={`inline-block mt-2 ${renewal.color} w-fit text-xs px-2 py-1 rounded-full`}
                           >
-                            {renewal.text} || ''
+                            {renewal.text || ''} 
                           </div>
                         )}
                       </td>
