@@ -176,7 +176,6 @@ export default function EditPolicyPage() {
                                 value={form[name] || ""}
                                 onChange={handleChange}
                                 className="w-full border border-gray-300 px-4 py-2 rounded"
-                                required
                             />
                         </div>
                     ))}

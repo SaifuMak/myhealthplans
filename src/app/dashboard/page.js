@@ -188,7 +188,7 @@ export default function DashboardPage() {
 
                       {/* Policy Name & Type */}
                       <td className="px-4 py-4  align-top flex flex-col">
-                        {policy.policy_name}
+                        {policy.policy_name  || "N/A"}
                         {policy.policy_type && (
                           <div className="inline-block mt-2 w-fit bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
                             {policy.policy_type}
@@ -197,26 +197,27 @@ export default function DashboardPage() {
                       </td>
 
                       {/* DOB */}
-                      <td className="px-4 py-4 align-top">{formatDate(policy.dob)}</td>
+                      <td className="px-4 py-4 align-top">{formatDate(policy.dob)  || "N/A"}</td>
 
                       {/* Start Date */}
-                      <td className="px-4 py-4 align-top">{formatDate(policy.start_date)}</td>
+                      <td className="px-4 py-4 align-top">{formatDate(policy.start_date)  || "N/A"}</td>
 
                       {/* End Date + Renewal */}
                       <td className="px-4 py-4 align-top flex flex-col ">
-                        {formatDate(policy.end_date)}
+                        {formatDate(policy.end_date) || "N/A"}
                         {renewal.text && (
                           <div
                             className={`inline-block mt-2 ${renewal.color} w-fit text-xs px-2 py-1 rounded-full`}
                           >
-                            {renewal.text}
+                            {renewal.text} || ''
                           </div>
                         )}
                       </td>
 
                       {/* Sum */}
                       <td className="px-4 py-4 align-top">
-                        {parseFloat(policy.sum_assured).toLocaleString()}
+                      {policy.sum_assured ?  `${parseFloat(policy.sum_assured).toLocaleString()} Lakhs` : "N/A" }
+                       
                       </td>
 
                       {/* Actions */}
